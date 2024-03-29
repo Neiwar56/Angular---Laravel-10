@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Gestion de Publication</h1>
+
+    <a href="#" routerLink="/post/create/" class="btn btn-success">Crée une nouvelle publication</a>
+
+    <table class="table table-striped">
+        <thead>
+              <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let post of post">
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.description }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-info">Voir</a>
+                  <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-primary">Modifier</a>
+                  <button type="button" (click)="deletePost(post.id)" class="btn btn-danger">Supprimer</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>
